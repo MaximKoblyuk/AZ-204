@@ -1,0 +1,16 @@
+az login
+
+az webapp list --resource-group ManagedPlatform
+
+
+
+az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgapi')]"
+
+
+az webapp list --resource-group ManagedPlatform --query "[?starts_with(name, 'imgapi')].{Name:name}" --output tsv
+
+(WAY)
+cd F:\Allfiles\Labs\01\Starter\API\
+
+az webapp deployment source config-zip --resource-group ManagedPlatform --src api.zip --name <name-of-your-api-app>
+
